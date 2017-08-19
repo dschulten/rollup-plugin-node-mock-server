@@ -1,0 +1,55 @@
+= Rollup Plugin Node Mock Server
+:toc:
+
+Rollup plugin to run the https://github.com/smollweide/node-mock-server[node-mock-server] in a rollup project.
+
+The node-mock-server serves both the static resources of your project and features a file-based api mock with a middleware hook for dynamic responses. The server comes with a UI where developers can conveniently edit resources and choose which success or error response the API should return at runtime.
+
+You can also import your mock api from a [Swagger] specification.
+
+See the node-mock-server description for details.
+
+== Installation
+    npm i -D rollup-plugin-node-mock-server
+
+== Usage
+The _test_  folder contains a sample mock definition in _mock/index.js_.
+
+Create a _mock_ folder in your project and put the _test/mock/index.js_ file into it. It contains sample definitions for the https://github.com/smollweide/node-mock-server[node-mock-server].
+
+When you execute the rollup pipeline with that node-mock-server definition, the server will start serving at / from the _/public_ and _/dist_ folder and open the browser with _public/index.html_ and the API mock UI automatically.
+
+.rollup.config.js
+[source,javascript]
+----
+import nodeMockServer from 'rollup-plugin-node-mock-server'
+
+export default {
+    entry: 'index.js',
+    dest: './dist/bundle.js',
+    format: 'iife',
+    plugins: [
+        nodeMockServer(),
+    ]
+}
+----
+
+== Options
+Below you see the available options and their default values.
+
+[source,javascript]
+----
+nodeMockServer({
+    // project folder containing the mock data
+    dirName: 'mock',
+    // launch index.html page in browser
+    open: true,
+    // allows to adust the index.html url,
+    // e.g. to pass parameters to the index page
+    url: 'localhost:3001/'}
+});
+----
+
+
+== Building the Project
+    npm run build

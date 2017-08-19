@@ -1,34 +1,33 @@
-const fork = require('child_process').fork;
+import {fork} from 'child_process';
+import opn from 'opn';
 
-export default function nodeMockServer( options = {}) {
+export default function nodeMockServer(options) {
 
-    console.log("starting mock server");
+    options.dirName = options.dirName || 'mock';
+    options.url = options.url || 'http://localhost:3001/';
 
+    if(options.open === undefined) {
+        options.open = true;
+    }
 
     var debug = typeof v8debug === 'object';
     if (debug) {
-        //Set an unused port number.
         process.execArgv.push('--debug=' + (40894));
     }
-    const mockServer = fork('mock')
+    const mockServer = fork(options.dirName);
 
-    let running = true;
+    let running = false;
 
     return {
         name: 'nodeMockServer',
-        ongenerate () {
+        ongenerate() {
             if (!running) {
                 running = true;
-
-                // Log which url to visit
-                // const url = `${PROTOCOL + options.host}:${options.port}`
-                // options.contentBase.forEach(base => {
-                //     console.log(green(url) + ' -> ' + resolve(base))
-                // })
+                // TODO: Log which url to visit
 
                 // Open browser
                 if (options.open) {
-                    // TODO opener(url)
+                    opn(options.url)
                 }
             }
         }

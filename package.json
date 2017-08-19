@@ -10,7 +10,8 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "node-mock-server": "^0.17.4"
+    "node-mock-server": "^0.17.4",
+    "opn": "^5.1.0"
   },
   "devDependencies": {
     "rollup": "^0.47.6",

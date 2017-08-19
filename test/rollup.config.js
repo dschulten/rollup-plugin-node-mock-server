@@ -1,8 +1,8 @@
 import nodeMockServer from 'rollup-plugin-node-mock-server'
 
 export default {
-    entry: 'entry.js',
-    dest: './dist/dest.js',
+    entry: 'index.js',
+    dest: './dist/bundle.js',
     format: 'iife',
     plugins: [
         nodeMockServer(),

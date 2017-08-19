@@ -2,9 +2,11 @@
   "name": "test",
   "version": "0.0.1",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c -w"
   },
-  "dependencies": {},
+  "dependencies": {
+
+  },
   "devDependencies": {
     "rollup": "^0.47.6",
     "rollup-plugin-node-mock-server": "file:///D:\\Dokumente\\ws\\rollup\\rollup-plugin-node-mock-server"

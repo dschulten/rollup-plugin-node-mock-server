@@ -35,8 +35,11 @@ mockServer({
 	},
 	expressMiddleware: [
 		function (express) {
-			return ['/', express.static(__dirname + '/public')];
-		}
+			return ['/', express.static(__dirname + '/../public')];
+		},
+        function (express) {
+            return ['/', express.static(__dirname + '/../dist')];
+        }
 	],
 	swaggerImport: {
 		protocol: 'http',
