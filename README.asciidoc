@@ -44,7 +44,7 @@ nodeMockServer({
     dirName: 'mock',
     // launch index.html page in browser
     open: true,
-    // allows to adust the index.html url,
+    // allows to adjust the index.html url,
     // e.g. to pass parameters to the index page
     url: 'localhost:3001/'}
 });
