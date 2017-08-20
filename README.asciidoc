@@ -1,6 +1,8 @@
 = Rollup Plugin Node Mock Server
 :toc:
 
+image:https://travis-ci.org/dschulten/rollup-plugin-node-mock-server.svg?branch=master["Build Status", link="https://travis-ci.org/dschulten/rollup-plugin-node-mock-server"]
+
 Rollup plugin to run the https://github.com/smollweide/node-mock-server[node-mock-server] in a rollup project.
 
 The node-mock-server serves both the static resources of your project and features a file-based api mock with a middleware hook for dynamic responses. The server comes with a UI where developers can conveniently edit resources and choose which success or error response the API should return at runtime.
