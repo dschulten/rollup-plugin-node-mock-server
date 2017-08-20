@@ -5,9 +5,9 @@ Rollup plugin to run the https://github.com/smollweide/node-mock-server[node-moc
 
 The node-mock-server serves both the static resources of your project and features a file-based api mock with a middleware hook for dynamic responses. The server comes with a UI where developers can conveniently edit resources and choose which success or error response the API should return at runtime.
 
-You can also import your mock api from a [Swagger] specification.
+You can also import your mock api from a https://swagger.io/specification/[Swagger (OpenAPI)] specification.
 
-See the node-mock-server description for details.
+See the node-mock-server readme for details.
 
 == Installation
     npm i -D rollup-plugin-node-mock-server
@@ -35,7 +35,9 @@ export default {
 ----
 
 == Options
-Below you see the available options and their default values.
+Below you see the available options and their default values. They only affect the behaviour of the rollup-plugin.
+
+Use the _index.js_ file inside your _mock_ folder to configure the actual  https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md[node-mock-server options].
 
 [source,javascript]
 ----
