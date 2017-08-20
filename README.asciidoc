@@ -42,8 +42,8 @@ Below you see the available options and their default values.
 nodeMockServer({
     // project folder containing the mock data
     dirName: 'mock',
-    // launch index.html page in browser
-    open: true,
+    // launch index.html page in browser and open mock ui
+    shouldOpenOnStart: true,
     // allows to adjust the index.html url,
     // e.g. to pass parameters to the index page
     url: 'localhost:3001/'}
@@ -53,3 +53,15 @@ nodeMockServer({
 
 == Building the Project
     npm run build
+
+== Testing the Project
+Change into the _test_ directory. Then:
+
+    npm install
+    npm start
+
+== Debugging rollup-plugin-node-mock-server
+From working directory _/test_ run _node_modules/rollup/bin/rollup_ with application parameters `-c` in your IDE and set breakpoint in _test/node_modules/rollup-plugin-node-mock-server/dist/index.cjs.js_.
+
+== License
+The MIT License (MIT). Please see link:LICENSE[License File] for more information.

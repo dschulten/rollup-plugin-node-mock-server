@@ -3,11 +3,12 @@ import opn from 'opn';
 
 export default function nodeMockServer(options) {
 
+    options = options || {};
     options.dirName = options.dirName || 'mock';
     options.url = options.url || 'http://localhost:3001/';
 
-    if(options.open === undefined) {
-        options.open = true;
+    if(options.shouldOpenOnStart === undefined) {
+        options.shouldOpenOnStart = true;
     }
 
     var debug = typeof v8debug === 'object';
@@ -26,7 +27,7 @@ export default function nodeMockServer(options) {
                 // TODO: Log which url to visit
 
                 // Open browser
-                if (options.open) {
+                if (options.shouldOpenOnStart) {
                     opn(options.url)
                 }
             }

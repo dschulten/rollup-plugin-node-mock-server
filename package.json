@@ -1,14 +1,39 @@
 {
   "name": "rollup-plugin-node-mock-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Serve your rolled up bundle with mock api",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "scripts": {
-    "build": "rollup -c",
-    "lint": "standard rollup.config.js src/**",
-    "prepare": "npm run build"
+    "build": "rollup -c"
   },
+  "keywords": [
+    "rollup",
+    "rollup-plugin",
+    "serve",
+    "node-mock-server",
+    "static",
+    "mock",
+    "api",
+    "swagger",
+    "rest api"
+  ],
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "MIT",
+  "author": "Dietrich Schulten <ds@escalon.de>",
+  "homepage": "https://github.com/dschulten/rollup-plugin-node-mock-server",
+  "bugs": {
+    "url": "https://github.com/dschulten/rollup-plugin-node-mock-server/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dschulten/rollup-plugin-node-mock-server"
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "node-mock-server": "^0.17.4",
     "opn": "^5.1.0"

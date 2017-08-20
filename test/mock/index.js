@@ -10,6 +10,7 @@ var responseFuncPath = __dirname + '/func-imported';
 mockServer({
 	restPath: dest,
 	dirName: __dirname,
+	urlPath: '/api',
 	uiPath: '/ui',
 	funcPath: [
 		__dirname + '/func',
