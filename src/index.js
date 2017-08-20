@@ -1,36 +1,35 @@
-import {fork} from 'child_process';
+import { fork } from 'child_process';
 import opn from 'opn';
 
 export default function nodeMockServer(options) {
+  const opts = options || {};
+  opts.dirName = opts.dirName || 'mock';
+  opts.url = opts.url || 'http://localhost:3001/';
 
-    options = options || {};
-    options.dirName = options.dirName || 'mock';
-    options.url = options.url || 'http://localhost:3001/';
+  if (opts.shouldOpenOnStart === undefined) {
+    opts.shouldOpenOnStart = true;
+  }
 
-    if(options.shouldOpenOnStart === undefined) {
-        options.shouldOpenOnStart = true;
-    }
+  const debug = typeof v8debug === 'object';
+  if (debug) {
+    process.execArgv.push(`--debug=${40894}`);
+  }
+  fork(opts.dirName);
 
-    var debug = typeof v8debug === 'object';
-    if (debug) {
-        process.execArgv.push('--debug=' + (40894));
-    }
-    const mockServer = fork(options.dirName);
+  let running = false;
 
-    let running = false;
+  return {
+    name: 'nodeMockServer',
+    ongenerate() {
+      if (!running) {
+        running = true;
+        // TODO: Log which url to visit
 
-    return {
-        name: 'nodeMockServer',
-        ongenerate() {
-            if (!running) {
-                running = true;
-                // TODO: Log which url to visit
-
-                // Open browser
-                if (options.shouldOpenOnStart) {
-                    opn(options.url)
-                }
-            }
+        // Open browser
+        if (opts.shouldOpenOnStart) {
+          opn(opts.url);
         }
-    }
+      }
+    },
+  };
 }
