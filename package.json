@@ -6,7 +6,8 @@
   "module": "dist/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "lint": "node_modules/.bin/eslint ./src"
+    "lint": "node_modules/.bin/eslint ./src",
+    "test": "npm run lint && npm run build"
   },
   "keywords": [
     "rollup",
