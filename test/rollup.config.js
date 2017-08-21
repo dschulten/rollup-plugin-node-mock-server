@@ -1,4 +1,4 @@
-import nodeMockServer from 'rollup-plugin-node-mock-server'
+import nodeMockServer from 'rollup-plugin-node-mock-server';
 
 export default {
   entry: 'index.js',
