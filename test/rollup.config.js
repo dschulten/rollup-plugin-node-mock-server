@@ -5,6 +5,6 @@ export default {
   dest: './dist/bundle.js',
   format: 'iife',
   plugins: [
-    nodeMockServer({shouldOpenOnStart: false}),
+    nodeMockServer({shouldOpenOnStart: true}),
   ],
 };

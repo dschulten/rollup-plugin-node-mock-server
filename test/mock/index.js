@@ -38,9 +38,9 @@ mockServer({
 		function (express) {
 			return ['/', express.static(__dirname + '/../public')];
 		},
-        function (express) {
-            return ['/', express.static(__dirname + '/../dist')];
-        }
+		function (express) {
+			return ['/', express.static(__dirname + '/../dist')];
+		}
 	],
 	swaggerImport: {
 		protocol: 'http',
