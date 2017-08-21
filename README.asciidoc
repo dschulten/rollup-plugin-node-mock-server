@@ -14,7 +14,7 @@ You can also import your mock api from a https://swagger.io/specification/[Swagg
     npm i -D rollup-plugin-node-mock-server
 
 == Usage
-The _test_  folder contains a sample mock definition in _mock/index.js_.
+The _test_  folder contains a sample mock definition.
 
 Create a _mock_ folder in your project and copy the contents of the _test/mock_ folder into it. The file https://github.com/dschulten/rollup-plugin-node-mock-server/blob/master/test/mock/index.js[_test/mock/index.js_] contains a sample definition for your mock server. For an explanation of the options see https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md[node-mock-server options]. Furthermore consider the comprehensive documentation in the https://github.com/smollweide/node-mock-server[node-mock-server readme].
 
@@ -54,7 +54,7 @@ export default {
 ----
 When you execute your rollup pipeline with the node-mock-server definition above, the server will start serving at _/_ from the _/public_ and _/dist_ folder and it automatically opens the browser with _public/index.html_ and the API mock UI.
 
-All of these paths can be reconfigured in _mock/index.js_, see the https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md[options] `uiPath` and `expressMiddleware`.
+TIP: All of these paths can be reconfigured in _mock/index.js_, see the https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md[options] `uiPath` and `expressMiddleware`.
 
 == Options
 Below you see the available plugin options and their default values. They only affect the behaviour of the rollup-plugin, not the mock behaviour.
