@@ -46,7 +46,7 @@ Use the _index.js_ file inside your _mock_ folder to configure the actual  https
 nodeMockServer({
     // project folder containing the mock data
     dirName: 'mock',
-    // launch index.html page in browser
+    // launch index.html page and mock ui in browser
     shouldOpenOnStart: true,
     // allows to adjust the index.html url,
     // e.g. to pass parameters to the index page

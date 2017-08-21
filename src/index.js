@@ -1,4 +1,4 @@
-import { fork } from 'child_process';
+import {fork} from 'child_process';
 import opn from 'opn';
 
 export default function nodeMockServer(options) {
@@ -14,7 +14,11 @@ export default function nodeMockServer(options) {
   if (debug) {
     process.execArgv.push(`--debug=${40894}`);
   }
-  fork(opts.dirName);
+  if (opts.shouldOpenOnStart) {
+    fork(opts.dirName);
+  } else {
+    fork(opts.dirName, [], {env: {NODE_ENV: 'test'}});
+  }
 
   let running = false;
 
