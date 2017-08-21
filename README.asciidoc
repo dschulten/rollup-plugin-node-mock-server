@@ -67,8 +67,9 @@ nodeMockServer({
     // launch index.html page and mock ui in browser
     shouldOpenOnStart: true,
     // allows to adjust the index.html url,
-    // e.g. to pass parameters to the index page
-    url: 'localhost:3001/'}
+    // e.g. to pass ?query parameters to the index page
+    // (after the trailing slash)
+    url: 'http://localhost:3001/'}
 });
 ----
 Use the _index.js_ file inside your _mock_ folder to configure the actual https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md[node-mock-server options].
