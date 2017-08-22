@@ -1,4 +1,5 @@
-# Rollup Plugin to run node-mock-server
+## Rollup Plugin to run node-mock-server
+Rollup plugin to start [node-mock-server](https://github.com/smollweide/node-mock-server) in a rollup project.
 
 ## Readme
 
