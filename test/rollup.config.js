@@ -1,4 +1,5 @@
 import nodeMockServer from 'rollup-plugin-node-mock-server';
+import livereload from 'rollup-plugin-livereload';
 
 export default {
   entry: 'index.js',
@@ -6,5 +7,6 @@ export default {
   format: 'iife',
   plugins: [
     nodeMockServer({shouldOpenOnStart: true}),
+    livereload(),
   ],
 };

@@ -4,11 +4,10 @@
   "scripts": {
     "start": "rollup -c -w"
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "rollup": "^0.47.6",
+    "rollup-plugin-livereload": "^0.6.0",
     "rollup-plugin-node-mock-server": "../../rollup-plugin-node-mock-server"
   }
 }

@@ -64,11 +64,13 @@ Below you see the available plugin options and their default values. They only a
 nodeMockServer({
     // project folder containing the mock data
     dirName: 'mock',
-    // launch index.html page and mock ui in browser
+
+    // launch index.html page in browser and open mockserver ui
     shouldOpenOnStart: true,
-    // allows to adjust the index.html url,
-    // e.g. to pass ?query parameters to the index page
-    // (after the trailing slash)
+
+    // specifies the url of the application page to open automatically
+    // e.g. to pass query parameters to an SPA
+    // as in 'http://localhost:3001/?foo' (note the trailing slash before ?foo)
     url: 'http://localhost:3001/'}
 });
 ----
