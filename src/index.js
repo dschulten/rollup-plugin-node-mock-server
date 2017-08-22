@@ -1,5 +1,6 @@
-import {fork} from 'child_process';
 import opn from 'opn';
+import mockServer from 'node-mock-server';
+
 
 export default function nodeMockServer(options) {
   const opts = options || {};
@@ -10,16 +11,19 @@ export default function nodeMockServer(options) {
     opts.shouldOpenOnStart = true;
   }
 
-  const debug = typeof v8debug === 'object';
-  if (debug) {
-    process.execArgv.push(`--debug=${40894}`);
-  }
-  if (opts.shouldOpenOnStart) {
-    fork(opts.dirName);
-  } else {
-    fork(opts.dirName, [], {env: {NODE_ENV: 'test'}});
-  }
+  opts.restPath = opts.restPath || `${opts.dirName}/rest`;
+  opts.urlPath = opts.urlPath || '/api';
+  opts.uiPath = opts.uiPath || '/ui';
+  opts.expressMiddleware = [
+    function (express) {
+      return ['/', express.static(`${opts.dirName}/../public`)];
+    },
+    function (express) {
+      return ['/', express.static(`${opts.dirName}/../dist`)];
+    },
+  ];
 
+  mockServer(options);
   let running = false;
 
   return {
