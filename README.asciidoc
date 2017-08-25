@@ -78,14 +78,55 @@ nodeMockServer({
 ----
 Use the _index.js_ file inside your _mock_ folder to configure the actual https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md[node-mock-server options].
 
+=== Useful Scripts
+You can use the option `shouldOpenOnStart` to define an alternative rollup pipeline which does not open additional browser tabs when restarting the pipeline.
+
+.package.json
+[source, javascript]
+----
+  "scripts": {
+    "start": "rollup -c -w --environment BUILD:development",
+    "again": "rollup -c -w --environment BUILD:again"
+  }
+----
+
+.rollup.config.js
+[source, javascript]
+----
+const plugins = [];
+if (process.env.BUILD === 'development') {
+  plugins.push(
+    nodeMockServer()
+  );
+}
+if (process.env.BUILD === 'again') {
+  plugins.push(
+    nodeMockServer({shouldOpenOnStart: false})
+  );
+}
+export default {
+  ...
+  plugins: plugins,
+  ...
+}
+----
+
+Start pipeline and open browser tabs:
+
+    $ npm start
+
+After stopping the rollup watch pipeline:
+
+    $ npm run again
+
 == Building the Project
-    npm run build
+    $ npm run build
 
 == Testing the Project
 Change into the _test_ directory. Then:
 
-    npm install
-    npm start
+    $ npm install
+    $ npm start
 
 == Debugging rollup-plugin-node-mock-server
 When you start hacking on the plugin, you may want to debug it. From working directory _/test_ run _node_modules/rollup/bin/rollup_ with application parameter `-c` in your IDE and set breakpoints in _test/node_modules/rollup-plugin-node-mock-server/dist/index.cjs.js_.

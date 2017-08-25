@@ -14,6 +14,9 @@ export default function nodeMockServer(options) {
   opts.restPath = opts.restPath || `${opts.dirName}/rest`;
   opts.urlPath = opts.urlPath || '/api';
   opts.uiPath = opts.uiPath || '/ui';
+  opts.funcPath = opts.funcPath || [
+    `${opts.dirName}/func`,
+  ];
   opts.expressMiddleware = [
     function (express) {
       return ['/', express.static(`${opts.dirName}/../public`)];

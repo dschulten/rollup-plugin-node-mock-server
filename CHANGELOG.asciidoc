@@ -1,0 +1,9 @@
+= Changes
+
+== 0.2.0
+
+* do not open mock server ui in browser when option `shouldOpenOnStart` is set (previously it suppressed only opening the application). That can be used to define an npm script that restarts the server and rollup watch without opening another browser window
+
+== 0.3.0
+
+* direct support for node-mock-server options from rollup.config.js, no need to provide mock/index.js anymore
