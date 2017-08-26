@@ -6,6 +6,15 @@ import chip from 'chip';
 
 const log = chip();
 
+function closeServerOnTermination(server) {
+  const terminationSignals = ['SIGINT', 'SIGTERM'];
+  terminationSignals.forEach((signal) => {
+    process.on(signal, () => {
+      server.close();
+      process.exit();
+    });
+  });
+}
 
 export default function nodeMockServer(options) {
   const opts = options || {};
@@ -50,7 +59,10 @@ export default function nodeMockServer(options) {
     fs.mkdirSync(opts.dirName);
     log(`wrote directory ${opts.dirName}`);
   }
-  mockServer(opts);
+  const server = mockServer(opts).appController.server;
+
+  closeServerOnTermination(server);
+
   let running = false;
 
   return {
@@ -68,3 +80,4 @@ export default function nodeMockServer(options) {
     },
   };
 }
+
