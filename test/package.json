@@ -2,13 +2,14 @@
   "name": "test",
   "version": "0.0.1",
   "scripts": {
-    "start": "rollup -c -w --environment BUILD:development",
+    "start": "rollup -c -w",
     "again": "rollup -c -w --environment BUILD:again"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "rollup": "^0.47.6",
     "rollup-plugin-livereload": "^0.6.0",
-    "rollup-plugin-node-mock-server": "../../rollup-plugin-node-mock-server"
+    "rollup-plugin-node-mock-server": "0.3.0"
   }
 }

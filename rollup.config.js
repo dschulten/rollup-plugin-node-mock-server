@@ -13,9 +13,6 @@ export default {
   plugins: [
     buble(),
   ],
-  onwarn({code, message}) {
-    if (code !== 'UNRESOLVED_IMPORT') {
-      console.warn(message);
-    }
-  },
+  sourceMap: true,
+  external: ['node-mock-server', 'opn', 'url', 'fs', 'chip'],
 };

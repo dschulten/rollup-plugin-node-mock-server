@@ -34,9 +34,11 @@
     "url": "https://github.com/dschulten/rollup-plugin-node-mock-server"
   },
   "files": [
-    "dist", "test"
+    "dist",
+    "test"
   ],
   "dependencies": {
+    "chip": "0.0.5",
     "node-mock-server": "^0.17.4",
     "opn": "^5.1.0"
   },
