@@ -12,7 +12,7 @@ plugins.push(
     url: 'http://localhost:3004/?foo=42',
     shouldOpenOnStart: open,
   }),
-  livereload({watch: 'dist'})
+  livereload({watch: ['dist', 'public']})
 );
 
 export default {

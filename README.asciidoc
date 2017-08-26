@@ -58,19 +58,22 @@ When you execute your rollup pipeline with the node-mock-server definition above
 === url
 If present, the plugin opens the browser at the given url and adjusts the node-mock-server to use the given `port` accordingly. Default: _http://localhost:3001/_
 
-=== shouldOpenOnStart
-If `false`, the plugin will not open browser tabs. Default: `true`
-
 === contentBase
 Array of folders with static content in the project directory that should be served. Default: `['public', 'dist']`.
 
 NOTE: The plugin applies the `contentBase` value to the node-mock-server https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md#optionsexpressmiddleware[expressMiddleware] option for convenience. You can specify `expressMiddleware` directly, if needed.
 
+=== shouldOpenOnStart
+If `false`, the plugin will not open browser tabs. Default: `true`
+
 === dirName
-Folder which contains the mock responses. Default: _./mock_
+Project folder which contains the mock responses. Default: _mock_
 
 === uiPath
-Path where the mock api UI is available. Default: _/ui_
+Context root of the URL path where the mock api UI is available, e.g. _http://localhost:3001/ui_. Default: _/ui_
+
+=== urlPath
+Context root of the URL where the mock api is available, e.g. _http://localhost:3001/api_. Default: _/api_
 
 === Options of node-mock-server
 In addition, you can use all https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md[node-mock-server options].
@@ -88,7 +91,7 @@ nodeMockServer({
 });
 ----
 
-More examples are on the https://github.com/smollweide/node-mock-server/blob/feature/tunnel/doc/readme-usage-examples.md[node-mock-server example page].
+More examples for options are on the https://github.com/smollweide/node-mock-server/blob/feature/tunnel/doc/readme-usage-examples.md[node-mock-server example page].
 
 == Useful Scripts
 You can use the option `shouldOpenOnStart` to define an alternative rollup pipeline which does not open additional browser tabs when restarting the pipeline.
@@ -113,7 +116,7 @@ plugins.push(
     url: 'http://localhost:3004/?foo=42',
     shouldOpenOnStart: open,
   }),
-  livereload({watch: 'dist'})
+  livereload({watch: ['dist', 'public']})
 );
 export default {
   ...
@@ -125,11 +128,14 @@ export default {
 
 The _./test_ folder contains a sample project which demonstrates the above configuration. Change into that directory. Then:
 
+    $ npm install
+
 Start pipeline and open browser tabs:
 
     $ npm start
 
-After stopping the rollup watch pipeline:
+Edit project files in the _test_ project, e.g. index.js, lib.js or public/index.html and observe how rollup-watch and livereload keep the browser up to date.
+After stopping the rollup-watch pipeline:
 
     $ npm run again
 
@@ -138,11 +144,6 @@ No new browser tabs will be fired up.
 == Building the Project
     $ npm run build
 
-== Testing the Project
-Change into the _test_ directory. Then:
-
-    $ npm install
-    $ npm start
 
 == Debugging rollup-plugin-node-mock-server
 When you start hacking on the plugin, you may want to debug it. From working directory _/test_ run _node_modules/rollup/bin/rollup_ with application parameter `-c` in your IDE and set breakpoints in _src/index.js_.

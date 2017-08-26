@@ -18,7 +18,7 @@ function closeServerOnTermination(server) {
 
 export default function nodeMockServer(options) {
   const opts = options || {};
-  opts.dirName = opts.dirName || 'mock';
+  opts.dirName = `${process.cwd()}/${opts.dirName || 'mock'}`;
   opts.restPath = opts.restPath || `${opts.dirName}/rest`;
   opts.urlPath = opts.urlPath || '/api';
   opts.uiPath = opts.uiPath || '/ui';

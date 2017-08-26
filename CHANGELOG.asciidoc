@@ -12,3 +12,4 @@
 
 * using node-mock-server 0.18.0
 * improved shutdown on Ctrl-C
+* corrected an issue with non-JSON responses
