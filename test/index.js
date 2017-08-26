@@ -1,5 +1,5 @@
-import lib from './lib.js'
+import lib from './lib';
 
-window.onload = () =>
-    document.body.innerHTML += '<div>' + window.location.pathname
-        + '</div><div>' + lib + '</div>';
+window.onload = function () {
+  document.body.innerHTML += `<div>${window.location.href}</div><div>${lib}</div>`;
+};

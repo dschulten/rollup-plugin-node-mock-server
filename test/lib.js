@@ -1,1 +1,1 @@
-export default 'Import successful'
+export default 'Import successful';

@@ -6,4 +6,8 @@ module.exports = {
     "object-curly-spacing": ["error", "never"],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
   },
+  "env": {
+    "browser": true,
+    "node": true
+  }
 };

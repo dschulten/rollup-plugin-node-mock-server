@@ -46,10 +46,12 @@ export default {
     format: 'iife',
   plugins: [
     nodeMockServer(),
-    livereload()
+    livereload({watch: 'dist'})
   ]
 }
 ----
+TIP: In my experience rollup-plugin-livereload is more robust when it is told which folder to observe.
+
 When you execute your rollup pipeline with the node-mock-server definition above, the server will start serving at _/_ from the _/public_ and _/dist_ folder and it automatically opens the browser with _public/index.html_ and the API mock UI where you can start defining your mock responses.
 
 == Options
@@ -100,19 +102,15 @@ You can use the option `shouldOpenOnStart` to define an alternative rollup pipel
 [source, javascript]
 ----
 const plugins = [];
-if (process.env.BUILD === 'again') {
-  plugins.push(
-    nodeMockServer({
-      shouldOpenOnStart: false,
-    }),
-    livereload()
-  );
-} else {
-  plugins.push(
-    nodeMockServer(),
-    livereload()
-  );
-}
+const open = (process.env.BUILD !== 'again');
+
+plugins.push(
+  nodeMockServer({
+    url: 'http://localhost:3004/?foo=42',
+    shouldOpenOnStart: open,
+  }),
+  livereload({watch: 'dist'})
+);
 export default {
   ...
   plugins: plugins,
