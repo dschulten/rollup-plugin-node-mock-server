@@ -7,3 +7,8 @@
 == 0.3.0
 
 * direct support for node-mock-server options from rollup.config.js, no need to provide mock/index.js anymore
+
+== 0.4.0
+
+* using node-mock-server 0.18.0
+* improved shutdown on Ctrl-C
