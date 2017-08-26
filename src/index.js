@@ -26,6 +26,8 @@ export default function nodeMockServer(options) {
     },
   ];
 
+  // TODO remove from nms 0.18.0
+  process.env.NODE_ENV = 'test';
   mockServer(options);
   let running = false;
 
