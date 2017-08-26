@@ -52,7 +52,7 @@ export default {
 ----
 TIP: In my experience rollup-plugin-livereload is more robust when it is told which folder to observe.
 
-When you execute your rollup pipeline with the node-mock-server definition above, the server will start serving at _/_ from the _/public_ and _/dist_ folder and it automatically opens the browser with _public/index.html_ and the API mock UI where you can start defining your mock responses.
+When you execute your rollup pipeline with the node-mock-server definition above, the server will start serving at _/_ from the _/public_ and _/dist_ folder and it automatically opens a browser tab with your _index.html_ and a tab with the API mock UI where you can start defining your mock api responses.
 
 == Options
 === url
