@@ -69,6 +69,9 @@ NOTE: The plugin applies the `contentBase` value to the node-mock-server https:/
 === dirName
 Folder which contains the mock responses. Default: _./mock_
 
+=== uiPath
+Path where the mock api UI is available. Default: _/ui_
+
 === Options of node-mock-server
 In addition, you can use all https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md[node-mock-server options].
 
@@ -84,7 +87,8 @@ nodeMockServer({
     url: 'http://localhost:3004/?foo=42'}
 });
 ----
-Use the _index.js_ file inside your _mock_ folder to configure the actual https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md[node-mock-server options].
+
+More examples are on the https://github.com/smollweide/node-mock-server/blob/feature/tunnel/doc/readme-usage-examples.md[node-mock-server example page].
 
 == Useful Scripts
 You can use the option `shouldOpenOnStart` to define an alternative rollup pipeline which does not open additional browser tabs when restarting the pipeline.

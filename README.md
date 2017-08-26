@@ -5,7 +5,7 @@ The node-mock-server serves the static resources of your project and features a 
 
 The server comes with a UI where developers can conveniently edit resources and choose which success or error response the API should return at runtime.
 
-You can also import your mock api from a https://swagger.io/specification/[Swagger (OpenAPI)] specification.
+You can also import your mock api from a [Swagger (OpenAPI) specification](https://swagger.io/specification/specification).
 
 ## Readme
 

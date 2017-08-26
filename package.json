@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "chip": "0.0.5",
-    "node-mock-server": "^0.17.4",
+    "node-mock-server": "^0.18.0-alpha-3",
     "opn": "^5.1.0"
   },
   "devDependencies": {
