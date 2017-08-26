@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-node-mock-server",
   "version": "0.4.0",
-  "description": "Serve your rolled up bundle with mock api",
+  "description": "Rollup plugin to run node-mock-server both as server and as mock api",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "scripts": {
