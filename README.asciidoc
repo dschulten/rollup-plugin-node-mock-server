@@ -75,6 +75,9 @@ Context root of the URL path where the mock api UI is available, e.g. _http://lo
 === urlPath
 Context root of the URL where the mock api is available, e.g. _http://localhost:3001/api_. Default: _/api_
 
+=== Running as https Server
+Specify `key` and `cert` to have node-mock-server run as an https server. It simply passes the parameters to https://nodejs.org/api/https.html#https_https_createserver_options_requestlistener[`https.createServer`].
+
 === Options of node-mock-server
 In addition, you can use all https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md[node-mock-server options].
 
