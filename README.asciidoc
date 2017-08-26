@@ -60,7 +60,7 @@ If present, the plugin opens the browser at the given url and adjusts the node-m
 If `false`, the plugin will not open browser tabs. Default: `true`
 
 === contentBase
-Array of folders with static content in the project directory that should be served. Default: ['public', 'dist'].
+Array of folders with static content in the project directory that should be served. Default: `['public', 'dist']`.
 
 NOTE: The plugin applies the `contentBase` value to the node-mock-server https://github.com/smollweide/node-mock-server/blob/master/doc/readme-options.md#optionsexpressmiddleware[expressMiddleware] option for convenience. You can specify `expressMiddleware` directly, if needed.
 
